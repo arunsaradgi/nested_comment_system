@@ -14,13 +14,18 @@ function App() {
     dispatch({ type: "ADD_COMMENT", payload: { text, parentId } })
   }
 
+  const deleteComment = (id) => {
+    dispatch({ type: "DELETE_COMMENT", payload: { id } })
+  }
+
+  console.log(comments)
 
   return (
     <>
       <h1>Nested Comment System</h1>
       <CommentForm onSubmit={addComment} />
 
-      <CommentList comments={comments} addComment={addComment} />
+      <CommentList comments={comments} addComment={addComment} deleteComment={deleteComment} />
     </>
   )
 }
